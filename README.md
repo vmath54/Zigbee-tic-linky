@@ -17,9 +17,11 @@ The ESP Zigbee SDK provides more examples and tools for productization:
 * A USB cable for power supply and programming
 * Choose another ESP32-H2 as Zigbee coordinator (see [HA_on_off_switch example](../HA_on_off_switch))
 
-## Configure the project
+## terminal under Windows
 
-Before project configuration and build, make sure to set the correct chip target using `idf.py --preview set-target TARGET` command.
+If you are compiling on Windows using VS Code and ESP-IDF, you must open an ESP-IDF terminal to run the various commands.
+You need to run this command after launching the terminal:  
+`$env:IDF_TARGET="esp32h2"`
 
 ## Erase the NVRAM
 

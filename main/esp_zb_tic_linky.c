@@ -264,9 +264,12 @@ static void esp_zb_task(void *pvParameters)
     esp_zb_ep_list_t *ep_list = esp_zb_ep_list_create();
     esp_zb_ep_list_add_ep(ep_list, 
                          esp_zb_cluster_list,
-                         HA_ESP_LINKY_ENDPOINT,
-                         ESP_ZB_AF_HA_PROFILE_ID,
-                         ESP_ZB_HA_TEMPERATURE_SENSOR_DEVICE_ID);
+                         (esp_zb_endpoint_config_t){
+                             .endpoint = HA_ESP_LINKY_ENDPOINT,
+                             .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
+                             .app_device_id = ESP_ZB_HA_TEMPERATURE_SENSOR_DEVICE_ID,
+                             .app_device_version = 0,
+                         });
 
     // ------------------------------ Register Device ------------------------------
     esp_zb_device_register(ep_list);
